@@ -1,0 +1,4 @@
+- name: copy config
+  copy:
+    src: /home/alexei/diploma/ansible/zabbix_agent/zabbix_agentd.conf
+    dest: /etc/zabbix
