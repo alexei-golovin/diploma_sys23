@@ -1,0 +1,10 @@
+- name: install zabbix-server-pgsql, zabbix-frontend-php, php8.1-pgsql, zabbix-apache-conf, zabbix-sql-scripts, zabbix-agent
+  apt:
+    name:
+    - zabbix-server-pgsql
+    - zabbix-frontend-php
+    - php8.1-pgsql
+    - zabbix-apache-conf
+    - zabbix-sql-scripts
+    - zabbix-agent
+    state: present

@@ -1,0 +1,7 @@
+- name: copy config
+  copy:
+    src: /home/alexei/diploma/ansible/zabbix/zabbix_server.conf
+    dest: /etc/zabbix
+    mode: 0660
+    owner: root
+    group: 
