@@ -1,0 +1,45 @@
+- name: zabbix
+  hosts: zabbix
+  become: true
+  become_method: sudo
+  roles:
+    - zabbix
+
+- name: elasticsearch, elasticsearch_zabbix_agent
+  hosts: elasticsearch
+  become: true
+  become_method: sudo
+  roles:
+    - elasticsearch
+    - zabbix_agent
+
+- name: kibana, kibana_zabbix_agent
+  hosts: kibana
+  become: true
+  become_method: sudo
+  roles:
+    - kibana
+    - zabbix_agent
+
+- name: filebeat_website1, website1_zabbix_agent
+  hosts: website1
+  become: true
+  become_method: sudo
+  roles:
+    - filebeat_website1
+    - zabbix_agent
+
+- name: filebeat_website2, website2_zabbix_agent
+  hosts: website2
+  become: true
+  become_method: sudo
+  roles:
+    - filebeat_website2
+    - zabbix_agent
+
+- name: bastion_zabbix_agent
+  hosts: bastion
+  become: true
+  become_method: sudo
+  roles:
+    - zabbix_agent

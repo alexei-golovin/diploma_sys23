@@ -1,0 +1,36 @@
+[bastion]
+bastion ansible_host=bastion ansible_ssh_user=user
+
+[website1]
+website1.ru-central1.internal
+
+[website2]
+website2.ru-central1.internal
+
+[zabbix]
+zabbix.ru-central1.internal
+
+[elasticsearch]
+elasticsearch.ru-central1.internal
+
+[kibana]
+kibana.ru-central1.internal
+
+[website1:vars]
+ansible_ssh_common_args="-o StrictHostKeyChecking=no -o ProxyCommand=\"ssh -q user@bastion -o IdentityFile=/home/alexei/diploma/terraform/id_rsa -o Port=22 -W %h:%p\""
+
+[website2:vars]
+ansible_ssh_common_args="-o StrictHostKeyChecking=no -o ProxyCommand=\"ssh -q user@bastion -o IdentityFile=/home/alexei/diploma/terraform/id_rsa -o Port=22 -W %h:%p\""
+
+[zabbix:vars]
+ansible_ssh_common_args="-o StrictHostKeyChecking=no -o ProxyCommand=\"ssh -q user@bastion -o IdentityFile=/home/alexei/diploma/terraform/id_rsa -o Port=22 -W %h:%p\""
+
+[elasticsearch:vars]
+ansible_ssh_common_args="-o StrictHostKeyChecking=no -o ProxyCommand=\"ssh -q user@bastion -o IdentityFile=/home/alexei/diploma/terraform/id_rsa -o Port=22 -W %h:%p\""
+
+[kibana:vars]
+ansible_ssh_common_args="-o StrictHostKeyChecking=no -o ProxyCommand=\"ssh -q user@bastion -o IdentityFile=/home/alexei/diploma/terraform/id_rsa -o Port=22 -W %h:%p\""
+
+[all:vars]
+ansible_user=user
+ansible_ssh_private_key_file=/home/alexei/diploma/terraform/id_rsa
