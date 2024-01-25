@@ -1,0 +1,10 @@
+- name: reload filebeat
+  systemd:
+    daemon_reload: true
+    name: filebeat.service
+    state: started
+
+- name: restart filebeat 
+  systemd:
+    name: filebeat.service
+    state: restarted
