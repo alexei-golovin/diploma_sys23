@@ -1,0 +1,7 @@
+- name: copy config
+  copy:
+    src: /home/alexei/diploma/ansible/kibana/kibana.yml
+    dest: /etc/kibana
+    mode: 0644
+    owner: root
+    group: 

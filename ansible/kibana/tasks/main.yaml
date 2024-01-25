@@ -1,0 +1,5 @@
+# tasks file for kibana
+  - import_tasks: download.yaml
+  - import_tasks: install.yaml
+  - import_tasks: config.yaml
+  - import_tasks: start.yaml
