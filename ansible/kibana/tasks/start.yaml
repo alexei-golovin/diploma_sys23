@@ -1,0 +1,10 @@
+- name: reload kibana
+  systemd:
+    daemon_reload: true
+    name: kibana.service
+    state: started
+
+- name: restart kibana 
+  systemd:
+    name: kibana.service
+    state: restarted
