@@ -1,0 +1,7 @@
+- name: copy config
+  copy:
+    src: /home/alexei/diploma/ansible/filebeat_website1/filebeat.yml
+    dest: /etc/filebeat
+    mode: 0600
+    owner: root
+    group: 
