@@ -1,0 +1,24 @@
+#cloud-config
+users:
+  - name: user
+    groups: sudo
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh-authorized-keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC2LO8i8AiWeamGYXQj7IycagDxQS/8xcFfea2WcCt5bQkFRN3uaiwwo67ySDr/HSn/pdPBL75CQw2LT3EW4UwTgh49a8HrqzZZSlFQvxN2tdVstty21k3b8E7oe/obO2Uki1++xVlfbQIjdT/MXuCzrmmXo2XlyUHo4wunVgrj7j2zbnpM6odHW+4ujDhx/mYwM0k5HEjvzm6vm0QK2dZ4eL2UTFTonGUJrq39t6VYZa1+Lovy07YWVEobcfnBRIh4B9Ir2IETiUnWh+mqGaTJV0tmPnaKUkMnjB2ytno3iJUmWzeq+YzlKkLkX1uSXun/bCLqYnw+U4IU9QE16jpL0YLE3Yk8UE6oblKqIjCPSlYpAhckUAapEhpIMdpZFmgkEYJ+0pb4KJehnMliX7G1bQCX6D5aOnHSqAzzm0ZbWby2N97578ia4/joGLA4EeooG3lKGPCryAtoUi25iydnWa20bbx+m1Cl4A3QKG1yOoVublqSIsV75IzDvp40ojE= alexei@ubdiploma
+
+disable_root: true
+timezone: Europe/Moscow
+repo_update: true
+repo_upgrade: true
+apt:
+  preserve_sources_list: true
+
+packages:
+  - nginx
+
+runcmd:
+  - [ systemctl, nginx-reload ]
+  - [ systemctl, enable, nginx.service ]
+  - [ systemctl, start, --no-block, nginx.service ]
+  - [ sh, -c, "echo $(echo 'Thanks to the Netology team for the training! Alexei Golovin SYS-23 Website2' | cut -d '.' -f 1 ) > /var/www/html/index.html" ]
