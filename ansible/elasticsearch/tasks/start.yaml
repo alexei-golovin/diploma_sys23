@@ -1,0 +1,10 @@
+- name: reload elasticsearch
+  systemd:
+    daemon_reload: true
+    name: elasticsearch.service
+    state: started
+
+- name: restart elasticsearch 
+  systemd:
+    name: elasticsearch.service
+    state: restarted
