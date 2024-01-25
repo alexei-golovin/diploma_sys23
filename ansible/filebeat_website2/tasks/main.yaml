@@ -1,0 +1,5 @@
+# tasks file for filebeat_website2
+  - import_tasks: download.yaml
+  - import_tasks: install.yaml
+  - import_tasks: config.yaml
+  - import_tasks: start.yaml

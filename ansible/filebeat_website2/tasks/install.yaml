@@ -1,0 +1,3 @@
+- name: install filebeat
+  apt:
+    deb: /home/user/filebeat-7.17.14-amd64.deb
