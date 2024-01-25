@@ -11,11 +11,11 @@
     * [Резервное копирование](#Резервное-копирование)
     * [Дополнительно](#Дополнительно)
 * [Диплом](#Диплом)
-    * [Сайт](#Сайт)
-    * [Мониторинг](#Мониторинг)
-    * [Логи](#Логи)
-    * [Сеть](#Сеть)
-    * [Резервное копирование](#Резервное-копирование)
+    * [1.Сайт](#1.Сайт)
+    * [2.Мониторинг](#2.Мониторинг)
+    * [3.Логи](#3.Логи)
+    * [4.Сеть](#4.Сеть)
+    * [5.Резервное копирование](#5.Резервное-копирование)
 ---------
 
 ## Задача
@@ -82,5 +82,33 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 
 ## Диплом
 
-### Сайт
-В папке /terraform создаем публичный ключ с помощью команды ssh-keygen далее его данные прописываем в заготовленые файлы [meta.yaml](https://github.com/alexei-golovin/diploma_sys23/blob/main/terraform/meta.yaml), [meta1.yaml](https://github.com/alexei-golovin/diploma_sys23/blob/main/terraform/meta1.yaml), [meta2.yaml](https://github.com/alexei-golovin/diploma_sys23/blob/main/terraform/meta2.yaml). Вводим свои данные от Yandex Cloud в файлы [variables.tf](https://github.com/alexei-golovin/diploma_sys23/blob/main/terraform/variables.tf), [terraform.tfvars](https://github.com/alexei-golovin/diploma_sys23/blob/main/terraform/terraform.tfvars). Запускаем команду terraform init, terraform apply подтверждаем свое намериние и ждем пока развернется инфраструктура.
+### 1.Сайт
+В папке **/terraform** создаем публичный ключ с помощью команды **ssh-keygen** далее его данные прописываем в заготовленые файлы [meta.yaml](https://github.com/alexei-golovin/diploma_sys23/blob/main/terraform/meta.yaml), [meta1.yaml](https://github.com/alexei-golovin/diploma_sys23/blob/main/terraform/meta1.yaml), [meta2.yaml](https://github.com/alexei-golovin/diploma_sys23/blob/main/terraform/meta2.yaml). Вводим свои данные от **Yandex Cloud** в файлы [variables.tf](https://github.com/alexei-golovin/diploma_sys23/blob/main/terraform/variables.tf), [terraform.tfvars](https://github.com/alexei-golovin/diploma_sys23/blob/main/terraform/terraform.tfvars). Запускаем команду **terraform init**, **terraform apply** подтверждаем свое намериние и ждем пока развернется инфраструктура.
+
+**Успешное завешение terraform**
+![](https://github.com/alexei-golovin/diploma_sys23/blob/main/files/terraform_apply.jpg)
+
+**Созданые сервисы Yandex Cloud**
+![](https://github.com/alexei-golovin/diploma_sys23/blob/main/files/yandex_cloud.jpg)
+
+**Созданые ВМ**
+![](https://github.com/alexei-golovin/diploma_sys23/blob/main/files/yandex_vm.jpg)
+
+**Target Group**
+![](https://github.com/alexei-golovin/diploma_sys23/blob/main/files/yandex_target.jpg)
+
+**Backend Group**
+![](https://github.com/alexei-golovin/diploma_sys23/blob/main/files/yandex_backend.jpg)
+
+**HTTP router**
+![](https://github.com/alexei-golovin/diploma_sys23/blob/main/files/yandex_http_router.jpg)
+
+**Application load balancer**
+![](https://github.com/alexei-golovin/diploma_sys23/blob/main/files/yandex_load_balancer.jpg)
+
+**Тесты сайта**
+![](https://github.com/alexei-golovin/diploma_sys23/blob/main/files/ssh_curl.jpg)
+![](https://github.com/alexei-golovin/diploma_sys23/blob/main/files/browser_curl.jpg)
+
+### 2.Мониторинг
+
