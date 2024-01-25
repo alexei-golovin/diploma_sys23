@@ -1,0 +1,7 @@
+- name: copy config
+  copy:
+    src: /home/alexei/diploma/ansible/elasticsearch/elasticsearch.yml
+    dest: /etc/elasticsearch
+    mode: 0660
+    owner: root
+    group: elasticsearch

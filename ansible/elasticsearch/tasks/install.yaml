@@ -1,0 +1,3 @@
+- name: install elasticsearch
+  apt:
+    deb: /home/user/elasticsearch-7.17.14-amd64.deb
