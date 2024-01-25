@@ -11,11 +11,7 @@
     * [Резервное копирование](#Резервное-копирование)
     * [Дополнительно](#Дополнительно)
 * [Диплом](#Диплом)
-    * [1.Сайт](#1.Сайт)
-    * [2.Мониторинг](#2.Мониторинг)
-    * [3.Логи](#3.Логи)
-    * [4.Сеть](#4.Сеть)
-    * [5.Резервное копирование](#5.Резервное-копирование)
+
 ---------
 
 ## Задача
@@ -82,7 +78,9 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 
 ## Диплом
 
-### 1.Сайт
+### Сайт
+Все запуски команд проводятся с домашней виртуальной машины с заранее подготовленой конфигурацией.
+
 В папке **/terraform** создаем публичный ключ с помощью команды **ssh-keygen** далее его данные прописываем в заготовленые файлы [meta.yaml](https://github.com/alexei-golovin/diploma_sys23/blob/main/terraform/meta.yaml), [meta1.yaml](https://github.com/alexei-golovin/diploma_sys23/blob/main/terraform/meta1.yaml), [meta2.yaml](https://github.com/alexei-golovin/diploma_sys23/blob/main/terraform/meta2.yaml). Вводим свои данные от **Yandex Cloud** в файлы [variables.tf](https://github.com/alexei-golovin/diploma_sys23/blob/main/terraform/variables.tf), [terraform.tfvars](https://github.com/alexei-golovin/diploma_sys23/blob/main/terraform/terraform.tfvars). Запускаем команду **terraform init**, **terraform apply** подтверждаем свое намериние и ждем пока развернется инфраструктура.
 
 **Успешное завешение terraform**
@@ -110,5 +108,44 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 ![](https://github.com/alexei-golovin/diploma_sys23/blob/main/files/ssh_curl.jpg)
 ![](https://github.com/alexei-golovin/diploma_sys23/blob/main/files/browser_curl.jpg)
 
-### 2.Мониторинг
+### Мониторинг
 
+Далее прописываем публичный адрес и имя виртуальной машины **bastion** в файл [/etc/hosts](https://github.com/alexei-golovin/diploma_sys23/blob/main/ansible/hosts). Для установки всех необходимых программ на ВМ запускаем плейбук командой **ansible-playbook -i inventory playbook.yaml** при запросе пароля от публичного ключа вводим его.
+
+**Успешное завешение ansible (p.s. со второй попытки, во время первой провайдер решил что мне сейчас не нужен интернет)**
+![](https://github.com/alexei-golovin/diploma_sys23/blob/main/files/ansible_playbook.jpg)
+
+Переходим по адресу http://51.250.43.119/zabbix/ виртуальной машины **zabbix** производим начальную настройку и далее заходим в графический интерфейс для дальнейшей настройки и добавления ВМ.
+
+**Подключенные ВМ и добавленые шаблоны**
+![](https://github.com/alexei-golovin/diploma_sys23/blob/main/files/browser_zabbix_hosts.jpg)
+
+**Настроеный dashboard для мониторинга ВМ**
+![](https://github.com/alexei-golovin/diploma_sys23/blob/main/files/browser_zabbix_dashboard.jpg)
+
+### Логи
+
+Переходим по адресу http://51.250.47.130:5601 виртуальной машины **kibana** производим настройку на отправку access.log, error.log nginx в Elasticsearch и проверяем соединение с Elasticsearch.
+
+**Настроеный filebeat**
+![](https://github.com/alexei-golovin/diploma_sys23/blob/main/files/browser_filebeat.jpg)
+![](https://github.com/alexei-golovin/diploma_sys23/blob/main/files/browser_filebeat2.jpg)
+
+**Соединение с elasticsearch**
+![](https://github.com/alexei-golovin/diploma_sys23/blob/main/files/browser_elasticsearch.jpg)
+
+### Сеть
+
+**VPC**
+![](https://github.com/alexei-golovin/diploma_sys23/blob/main/files/yandex_vpc.jpg)
+
+**Security Groups**
+![](https://github.com/alexei-golovin/diploma_sys23/blob/main/files/yandex_security_groups.jpg)
+
+**Подключение к bastion через ssh**
+![](https://github.com/alexei-golovin/diploma_sys23/blob/main/files/ssh_bastion.jpg)
+
+### Резервное копирование
+
+**Настроеный snapshot дисков ВМ**
+![](https://github.com/alexei-golovin/diploma_sys23/blob/main/files/yandex_snapshot.jpg)
