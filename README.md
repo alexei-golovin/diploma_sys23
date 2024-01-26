@@ -90,7 +90,7 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 ![](https://github.com/alexei-golovin/diploma_sys23/blob/main/files/yandex_cloud.jpg)
 
 **Созданые ВМ**
-
+![](https://github.com/alexei-golovin/diploma_sys23/blob/main/files/yandex_new_vm.jpg)
 
 **Target Group**
 ![](https://github.com/alexei-golovin/diploma_sys23/blob/main/files/yandex_target.jpg)
@@ -118,21 +118,21 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 Переходим по адресу http://51.250.33.107/zabbix/ виртуальной машины **zabbix** производим начальную настройку и далее заходим в графический интерфейс для дальнейшей настройки и добавления ВМ.
 
 **Подключенные ВМ и добавленые шаблоны**
-
+![](https://github.com/alexei-golovin/diploma_sys23/blob/main/files/browser_new_zabbix_hosts.jpg)
 
 **Настроеный dashboard для мониторинга ВМ**
-
+![](https://github.com/alexei-golovin/diploma_sys23/blob/main/files/browser_new_zabbix_dashboard.jpg)
 
 ### Логи
 
 Переходим по адресу http://51.250.38.40:5601 виртуальной машины **kibana** производим настройку на отправку access.log, error.log nginx в Elasticsearch и проверяем соединение с Elasticsearch.
 
 **Настроеный filebeat**
-
-
+![](https://github.com/alexei-golovin/diploma_sys23/blob/main/files/browser_new_filebeat.jpg)
+![](https://github.com/alexei-golovin/diploma_sys23/blob/main/files/browser_new_filebeat2.jpg)
 
 **Соединение с elasticsearch**
-
+![](https://github.com/alexei-golovin/diploma_sys23/blob/main/files/browser_new_elasticsearch.jpg)
 
 ### Сеть
 
@@ -143,7 +143,7 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 ![](https://github.com/alexei-golovin/diploma_sys23/blob/main/files/yandex_security_groups.jpg)
 
 **Подключение к bastion через ssh**
-
+![](https://github.com/alexei-golovin/diploma_sys23/blob/main/files/ssh_new_bastion.jpg)
 
 ### Резервное копирование
 
